@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -37,11 +38,11 @@ public class PetTutor {
 
     @JsonManagedReference
     @OneToMany(targetEntity = Pet.class, mappedBy = "petTutor", cascade = CascadeType.ALL)
-    private List<Pet> petList;
+    private List<Pet> petList = new ArrayList<>();
 
     @JsonManagedReference
     @OneToMany(targetEntity = Telefone.class, mappedBy = "petTutor", cascade = CascadeType.ALL)
-    private List<Telefone> telefoneList;
+    private List<Telefone> telefoneList = new ArrayList<>();
 
    
 

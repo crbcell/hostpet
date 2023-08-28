@@ -18,6 +18,6 @@ public class Telefone {
     private String numeroTelefone;
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_pet_tutor", referencedColumnName = "id")
+    @JoinColumn(name = "id_pettutor", referencedColumnName = "id", nullable = false)
     private PetTutor petTutor;
 }

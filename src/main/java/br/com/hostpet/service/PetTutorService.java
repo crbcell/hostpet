@@ -26,9 +26,9 @@ public class PetTutorService {
         petTutorDto.setNomeSocial(petTutor.getNomeSocial());
         petTutorDto.setGenero(petTutor.getGenero());
         petTutorDto.setDataAniversario(petTutor.getDataAniversario());
-        //petTutorDto.setEndereco(petTutor.getEndereco());
-        /*petTutorDto.setPetList(petTutor.getPetList());
-        petTutorDto.setTelefoneList(petTutor.getTelefoneList());*/
+        petTutorDto.setEndereco(petTutor.getEndereco());
+        petTutorDto.setPetList(petTutor.getPetList());
+        petTutorDto.setTelefoneList(petTutor.getTelefoneList());
         return petTutorDto;
     }
 
