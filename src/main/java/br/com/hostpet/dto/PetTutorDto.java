@@ -25,7 +25,17 @@ public class PetTutorDto {
     }
 
     private PetTutor transformePetTutorDtoEmObjeto() {
-        return new PetTutor(primeiroNome, ultimoNome, nomeSocial, genero, dataAniversario, endereco, petList, telefoneList);
+        return new PetTutor(
+                primeiroNome,
+                ultimoNome,
+                nomeSocial,
+                genero,
+                dataAniversario,
+                endereco,
+                //pet,
+                //telefone,
+                petList,
+                telefoneList);
     }
 
 }

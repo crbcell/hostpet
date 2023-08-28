@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "tb_telefone")
 public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +19,6 @@ public class Telefone {
     private String numeroTelefone;
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_pettutor", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pet_tutor", referencedColumnName = "id")
     private PetTutor petTutor;
 }

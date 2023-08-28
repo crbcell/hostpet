@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "tb_raca_pet")
 public class RacaDoPet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

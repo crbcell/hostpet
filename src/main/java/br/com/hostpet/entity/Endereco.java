@@ -10,6 +10,7 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "tb_endereco")
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

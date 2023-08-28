@@ -37,19 +37,27 @@ public class PetTutor {
     private Endereco endereco;
 
     @JsonManagedReference
-    @OneToMany(targetEntity = Pet.class, mappedBy = "petTutor", cascade = CascadeType.ALL)
-    private List<Pet> petList = new ArrayList<>();
+    @OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pet_tutor")
+    private List<Pet> petList;
 
     @JsonManagedReference
-    @OneToMany(targetEntity = Telefone.class, mappedBy = "petTutor", cascade = CascadeType.ALL)
-    private List<Telefone> telefoneList = new ArrayList<>();
+    @OneToMany(targetEntity = Telefone.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pet_tutor")
+    private List<Telefone> telefoneList;
 
-   
 
     public PetTutor() {
     }
 
-    public PetTutor(String primeiroNome, String ultimoNome, String nomeSocial, IdentidadeDeGenero genero, LocalDate dataAniversario, Endereco endereco, List<Pet> petList, List<Telefone> telefoneList) {
-    }
+    public PetTutor(
+            String primeiroNome,
+            String ultimoNome,
+            String nomeSocial,
+            IdentidadeDeGenero genero,
+            LocalDate dataAniversario,
+            Endereco endereco,
+            List<Pet> petList,
+            List<Telefone> telefoneList) { }
 }
 

@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "tb_pet")
 public class Pet {
 
     @Id
@@ -20,9 +21,8 @@ public class Pet {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_pettutor", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id_pet_tutor", referencedColumnName = "id")
     private PetTutor petTutor;
-
 
     //private RacaDoPet racaDoPet;
 }
