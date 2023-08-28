@@ -24,5 +24,10 @@ public class Pet {
     @JoinColumn(name = "id_pet_tutor", referencedColumnName = "id")
     private PetTutor petTutor;
 
+    public Pet(Long id, String nomePet, Long idPetTutor) {
+    }
+
+
+
     //private RacaDoPet racaDoPet;
 }
