@@ -1,9 +1,12 @@
 package br.com.hostpet.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class RacaDoPet {
     @Id
