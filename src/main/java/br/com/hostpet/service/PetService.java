@@ -20,9 +20,8 @@ public class PetService {
 
     private PetDto transformePetObjetoEmDto(Pet pet) {
         PetDto petDto = new PetDto();
-        petDto.setId(pet.getId());
         petDto.setNomePet(pet.getNomePet());
-        petDto.setIdPetTutor(pet.getPetTutor().getId());
+        petDto.setPetTutor(pet.getPetTutor());
         return petDto;
     }
 
@@ -37,4 +36,5 @@ public class PetService {
                 .map(this::transformePetObjetoEmDto)
                 .collect(Collectors.toList());
     }
+
 }

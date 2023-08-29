@@ -1,6 +1,8 @@
 package br.com.hostpet.controller;
 
 import br.com.hostpet.dto.PetDto;
+import br.com.hostpet.dto.PetOutputDto;
+import br.com.hostpet.dto.PetTutorDto;
 import br.com.hostpet.entity.Pet;
 import br.com.hostpet.service.PetService;
 import org.springframework.beans.BeanUtils;
@@ -30,8 +32,23 @@ public class PetController {
         return new ResponseEntity<>(pet, CREATED);
     }
 
+    /*@PostMapping(value = "/add")
+    public ResponseEntity<PetOutputDto> createBirthdayPerson(@RequestBody PetDto petDto) {
+        Pet pet = petService.salvar(petDto.transformaEntityEmDto());
+        return new ResponseEntity<>(PetOutputDto.transformaEmDTO(pet), CREATED);
+    }*/
+
+
     @GetMapping(value = "/todos-pets")
     public List<PetDto> pegarTodosPets(){
         return petService.pegarTodosPets();
     }
+
+    /*@GetMapping(value = "/todos")
+    public List<Pet> pegarPets(){
+        return petService.pets();
+    }*/
+
+
+
 }

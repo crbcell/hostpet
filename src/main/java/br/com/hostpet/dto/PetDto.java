@@ -1,16 +1,25 @@
 package br.com.hostpet.dto;
 
 import br.com.hostpet.entity.Pet;
-import lombok.Data;
+import br.com.hostpet.entity.PetTutor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 public class PetDto {
-    private Long id;
     private String nomePet;
-    private Long idPetTutor;
+    private PetTutor petTutor;
 
 
-    private Pet transformePetDtoEmObjeto() {
-        return new Pet(id, nomePet, idPetTutor);
+    public PetDto() {
+
+    }
+
+    public Pet transformaEntityEmDto() {
+        return new Pet(nomePet, petTutor);
     }
 }
