@@ -4,19 +4,15 @@ import br.com.hostpet.dto.PetInputDto;
 import br.com.hostpet.dto.PetOutputDto;
 import br.com.hostpet.entity.Pet;
 import br.com.hostpet.service.PetService;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
 
 @RequestMapping("/pet")
 @RestController
@@ -50,22 +46,21 @@ public class PetController {
 
     @GetMapping(value = "/pet-todos", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PetOutputDto> pegarPets() {
-        List<Pet> pt = this.petService.listarPets();
-        return PetOutputDto.listaDePets(pt);
+        List<Pet> pet = this.petService.listarPets();
+        return PetOutputDto.listaDePets(pet);
     }
 
     @GetMapping(value = "/pet-id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PetOutputDto> listarPetsPorId(@PathVariable ("id") Long id){
-        List<Pet> pt = this.petService.listarPetsById(id);
-        return PetOutputDto.listaDePets(pt);
+    public List<PetOutputDto> listarPetsPorId(@PathVariable("id") Long id) {
+        List<Pet> pet = this.petService.listarPetsById(id);
+        return PetOutputDto.listaDePets(pet);
     }
 
     @GetMapping(value = "/pet-tutor/{idTutor}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<PetOutputDto> listaPetsPorTutor(@PathVariable ("idTutor") Long idTutor){
-        List<Pet> pt = this.petService.listaPetsId(idTutor);
-        return PetOutputDto.listaDePets(pt);
+    public List<PetOutputDto> listaPetsPorTutor(@PathVariable("idTutor") Long idTutor) {
+        List<Pet> pet = this.petService.listaPetsId(idTutor);
+        return PetOutputDto.listaDePets(pet);
     }
-
 
 
 }
