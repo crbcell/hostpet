@@ -30,6 +30,12 @@ public class Pet {
     public Pet(String nomePet, PetTutor petTutor) {
     }
 
+    public Pet(Pet pet) {
+    }
+
+    public Pet(Long id, String nomePet, Long idPetTutor) {
+    }
+
 
     //private RacaDoPet racaDoPet;
 }
