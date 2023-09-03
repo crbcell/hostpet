@@ -1,22 +1,18 @@
 package br.com.hostpet.controller;
 
-import br.com.hostpet.dto.PetInputDto;
-import br.com.hostpet.dto.PetOutputDto;
+import br.com.hostpet.dto.input.PetInputDto;
+import br.com.hostpet.dto.output.PetOutputDto;
 import br.com.hostpet.entity.Pet;
-import br.com.hostpet.entity.PetTutor;
 import br.com.hostpet.service.PetService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
 
 @RequestMapping("/pet")
 @RestController
@@ -54,6 +50,5 @@ public class PetController {
         List<Pet> pet = this.petService.listaPetsId(idTutor);
         return PetOutputDto.listaDePets(pet);
     }
-
 
 }

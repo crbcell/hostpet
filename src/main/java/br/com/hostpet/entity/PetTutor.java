@@ -37,12 +37,12 @@ public class PetTutor {
     private Endereco endereco;
 
     @JsonManagedReference
-    @OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_pet_tutor")
     private List<Pet> petList;
 
     @JsonManagedReference
-    @OneToMany(targetEntity = Telefone.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Telefone.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_pet_tutor")
     private List<Telefone> telefoneList;
 
@@ -61,3 +61,8 @@ public class PetTutor {
             List<Telefone> telefoneList) { }
 }
 
+/*
+orphanRemoval = true: Esta opção especifica que,
+        quando a referência de uma entidade a uma entidade é
+        removida da coleção, a entidade órfã também deve ser removida
+        do banco de dados*/

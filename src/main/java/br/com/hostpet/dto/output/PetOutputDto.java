@@ -1,7 +1,6 @@
-package br.com.hostpet.dto;
+package br.com.hostpet.dto.output;
 
 import br.com.hostpet.entity.Pet;
-import br.com.hostpet.entity.PetTutor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

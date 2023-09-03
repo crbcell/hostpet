@@ -1,6 +1,6 @@
 package br.com.hostpet.service;
 
-import br.com.hostpet.dto.PetInputDto;
+import br.com.hostpet.dto.input.PetInputDto;
 import br.com.hostpet.entity.Pet;
 import br.com.hostpet.repository.IPetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,7 @@ public class PetService {
     }
 
     public List<Pet> listarPets() {
-        return iPetRepository.findAllPets().stream().collect(Collectors.toList());
+        return iPetRepository.findAll().stream().collect(Collectors.toList());
        // return iPetRepository.findAll().stream().collect(Collectors.toList());
         //exemplo de metodo que nao funciona sem convertPetDto
     }

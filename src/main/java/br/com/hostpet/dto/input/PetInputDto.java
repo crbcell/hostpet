@@ -1,4 +1,4 @@
-package br.com.hostpet.dto;
+package br.com.hostpet.dto.input;
 
 import br.com.hostpet.entity.Pet;
 import br.com.hostpet.entity.PetTutor;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class PetInputDto {
     private String nomePet;
     private Long idPetTutor;
-    //private PetTutor petTutor;
+    private PetTutor petTutor;
 
     public PetInputDto(Pet pet){
         this.nomePet = pet.getNomePet();
