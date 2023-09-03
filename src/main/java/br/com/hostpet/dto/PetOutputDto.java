@@ -4,6 +4,7 @@ import br.com.hostpet.entity.Pet;
 import br.com.hostpet.entity.PetTutor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class PetOutputDto {
     private Long id;
     private String nomePet;
@@ -25,12 +27,12 @@ public class PetOutputDto {
         //return new PetOutputDto(nomePet, petTutor);
     }
 
-    public PetOutputDto(String nomePet, PetTutor petTutor) {
-    }
+    /*public PetOutputDto(String nomePet, PetTutor petTutor) {
+    }*/
 
-    public static PetOutputDto transformaEmDTO(Pet pet) {
+   /* public static PetOutputDto transformaEmDTO(Pet pet) {
         return new PetOutputDto(pet.getNomePet(), pet.getPetTutor());
-    }
+    }*/
 
     public static List<PetOutputDto> listaDePets(List<Pet> pets){
         return pets.stream().map(PetOutputDto::new).collect(Collectors.toList());

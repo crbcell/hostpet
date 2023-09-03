@@ -17,16 +17,12 @@ import java.util.stream.Collectors;
 public class PetInputDto {
     private String nomePet;
     private Long idPetTutor;
-    private PetTutor petTutor;
+    //private PetTutor petTutor;
 
     public PetInputDto(Pet pet){
         this.nomePet = pet.getNomePet();
         this.idPetTutor = pet.getPetTutor().getId();
     }
 
-
-    public Pet transformaParaObjeto() {
-        return new Pet(nomePet, petTutor);
-    }
 
 }
