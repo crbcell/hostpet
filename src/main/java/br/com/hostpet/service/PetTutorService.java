@@ -1,6 +1,6 @@
 package br.com.hostpet.service;
 
-import br.com.hostpet.dto.PetTutorDto;
+import br.com.hostpet.dto.input.PetTutorInputDto;
 import br.com.hostpet.entity.PetTutor;
 import br.com.hostpet.repository.IPetTutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,8 @@ public class PetTutorService {
     }
 
 
-    private PetTutorDto transformePetTutorObjetoEmDto(PetTutor petTutor) {
-        PetTutorDto petTutorDto = new PetTutorDto();
+    private PetTutorInputDto transformePetTutorObjetoEmDto(PetTutor petTutor) {
+        PetTutorInputDto petTutorDto = new PetTutorInputDto();
         petTutorDto.setPrimeiroNome(petTutor.getPrimeiroNome());
         petTutorDto.setUltimoNome(petTutor.getUltimoNome());
         petTutorDto.setNomeSocial(petTutor.getNomeSocial());
@@ -38,7 +38,7 @@ public class PetTutorService {
     }
 
 
-    public List<PetTutorDto> pegarTodosTutores() {
+    public List<PetTutorInputDto> pegarTodosTutores() {
         return iPetTutorRepository
                 .findAll()
                 .stream()

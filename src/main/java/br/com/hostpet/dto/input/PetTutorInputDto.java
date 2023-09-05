@@ -1,4 +1,4 @@
-package br.com.hostpet.dto;
+package br.com.hostpet.dto.input;
 
 import br.com.hostpet.entity.Endereco;
 import br.com.hostpet.entity.Pet;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class PetTutorDto {
+public class PetTutorInputDto {
     private String primeiroNome;
     private String ultimoNome;
     private String nomeSocial;
@@ -21,7 +21,7 @@ public class PetTutorDto {
     private List<Pet> petList;
     private List<Telefone> telefoneList;
 
-    public PetTutorDto() {
+    public PetTutorInputDto() {
     }
 
     private PetTutor transformePetTutorDtoEmObjeto() {

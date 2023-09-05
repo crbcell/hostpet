@@ -32,7 +32,6 @@ public class PetController {
         return new ResponseEntity<>(pet, CREATED);
     }
 
-
     @GetMapping(value = "/pet-todos", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<PetOutputDto> pegarPets() {
         List<Pet> pet = this.petService.listarPets();

@@ -25,15 +25,8 @@ public class PetService {
         //PetInputDto petDto = new PetInputDto();
         petInputDto.setNomePet(pet.getNomePet());
         petInputDto.setIdPetTutor(petInputDto.getIdPetTutor());
-        //petDto.setPetTutor(pet.setPetTutor());
         return petInputDto;
     }
-    /*private static List<Pet> transformaParaObjeto(List<PetOutputDto> petOutputDtos) {
-        return petOutputDtos.stream()
-                .map(dto -> new Pet(dto.getId(), dto.getNomePet(), dto.getIdPetTutor()))
-                .collect(Collectors.toList());
-    }*/
-
 
     public Pet salvar(Pet pet) {
         return iPetRepository.save(pet);
@@ -49,8 +42,17 @@ public class PetService {
 
     public List<Pet> listarPets() {
         return iPetRepository.findAll().stream().collect(Collectors.toList());
-       // return iPetRepository.findAll().stream().collect(Collectors.toList());
+        // return iPetRepository.findAll().stream().collect(Collectors.toList());
         //exemplo de metodo que nao funciona sem convertPetDto
+    }
+
+    public List<Pet> listarPetsById(Long idTutor) {
+        return iPetRepository.findAllById(Collections.singleton(idTutor)).stream().collect(Collectors.toList());
+        //exemplo de metodo que nao funciona sem convertAniversarianteDto
+    }
+
+    public List<Pet> listaPetsId(Long idTutor) {
+        return iPetRepository.findOwnPets(idTutor);
     }
 
 
@@ -63,15 +65,15 @@ public class PetService {
         return iPetRepository.findAll(pets);
     }*/
 
-    public List<Pet> listarPetsById(Long idTutor) {
-        return iPetRepository.findAllById(Collections.singleton(idTutor)).stream().collect(Collectors.toList());
-        //exemplo de metodo que nao funciona sem convertAniversarianteDto
+    /* public static Pet toEntity(PetOutputDto petInputDto) {
+        Pet pet = new Pet();
+        pet.setNomePet(petInputDto.getNomePet());
+        //pet.setPetTutor(petInputDto.getIdPetTutor());
+        return pet;
     }
-
-    public List<Pet> listaPetsId(Long idTutor) {
-        return iPetRepository.findOwnPets(idTutor);
-    }
-
-
+    public PetOutputDto save(PetOutputDto petInputDto) {
+        Pet pet = toEntity(petInputDto);
+        return new PetOutputDto(pet);
+    }*/
 
 }

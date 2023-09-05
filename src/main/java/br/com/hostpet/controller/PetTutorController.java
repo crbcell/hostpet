@@ -1,6 +1,6 @@
 package br.com.hostpet.controller;
 
-import br.com.hostpet.dto.PetTutorDto;
+import br.com.hostpet.dto.input.PetTutorInputDto;
 import br.com.hostpet.entity.PetTutor;
 import br.com.hostpet.service.PetTutorService;
 import org.springframework.beans.BeanUtils;
@@ -25,7 +25,7 @@ public class PetTutorController {
 
     //@Operation(summary = "Cadastrar aniversariante", description = "Endpoint para cadastrar um aniversariante")
     @PostMapping(value = "/add")
-    public ResponseEntity<PetTutor> addPetTutor(@RequestBody PetTutorDto petTutorDto) {
+    public ResponseEntity<PetTutor> addPetTutor(@RequestBody PetTutorInputDto petTutorDto) {
         PetTutor petTutor = new PetTutor();
         BeanUtils.copyProperties(petTutorDto, petTutor);
         petTutorService.salvar(petTutor);
@@ -33,7 +33,7 @@ public class PetTutorController {
     }
 
     @GetMapping(value = "/todos-tutores")
-    public List<PetTutorDto> listarTodosTutores(){
+    public List<PetTutorInputDto> listarTodosTutores(){
         return petTutorService.pegarTodosTutores();
     }
 

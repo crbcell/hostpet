@@ -7,9 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,10 +16,9 @@ public class PetInputDto {
     private Long idPetTutor;
     private PetTutor petTutor;
 
-    public PetInputDto(Pet pet){
+    public PetInputDto(Pet pet) {
         this.nomePet = pet.getNomePet();
         this.idPetTutor = pet.getPetTutor().getId();
     }
-
 
 }

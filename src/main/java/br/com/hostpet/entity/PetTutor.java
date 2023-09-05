@@ -1,14 +1,11 @@
 package br.com.hostpet.entity;
 
 import br.com.hostpet.enums.IdentidadeDeGenero;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -58,7 +55,8 @@ public class PetTutor {
             LocalDate dataAniversario,
             Endereco endereco,
             List<Pet> petList,
-            List<Telefone> telefoneList) { }
+            List<Telefone> telefoneList) {
+    }
 }
 
 /*
