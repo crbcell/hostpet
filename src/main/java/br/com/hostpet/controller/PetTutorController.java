@@ -1,10 +1,14 @@
 package br.com.hostpet.controller;
 
 import br.com.hostpet.dto.input.PetTutorInputDto;
+import br.com.hostpet.dto.output.PetOutputDto;
+import br.com.hostpet.dto.output.PetTutorOutputDto;
+import br.com.hostpet.entity.Pet;
 import br.com.hostpet.entity.PetTutor;
 import br.com.hostpet.service.PetTutorService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +36,10 @@ public class PetTutorController {
         return new ResponseEntity<>(petTutor, CREATED);
     }
 
-    @GetMapping(value = "/todos-tutores")
-    public List<PetTutorInputDto> listarTodosTutores(){
-        return petTutorService.pegarTodosTutores();
+    @GetMapping(value = "/todos-tutores", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PetTutorOutputDto> pegarPetTutors() {
+        List<PetTutor> petTutors = this.petTutorService.listarPetTutors();
+        return PetTutorOutputDto.listaDePetTutors(petTutors);
     }
 
     @GetMapping(value = "/todos")

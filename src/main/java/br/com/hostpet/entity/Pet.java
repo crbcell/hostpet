@@ -1,6 +1,7 @@
 package br.com.hostpet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,6 +16,7 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
+    @JsonIgnore
     private Long id;
     @Column(name = "NOME_PET")
     private String nomePet;

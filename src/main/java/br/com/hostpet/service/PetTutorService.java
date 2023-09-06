@@ -1,6 +1,7 @@
 package br.com.hostpet.service;
 
 import br.com.hostpet.dto.input.PetTutorInputDto;
+import br.com.hostpet.dto.output.PetTutorOutputDto;
 import br.com.hostpet.entity.PetTutor;
 import br.com.hostpet.repository.IPetTutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class PetTutorService {
 
 
     private PetTutorInputDto transformePetTutorObjetoEmDto(PetTutor petTutor) {
-        PetTutorInputDto petTutorDto = new PetTutorInputDto();
+        PetTutorInputDto petTutorDto = new PetTutorInputDto(petTutor);
         petTutorDto.setPrimeiroNome(petTutor.getPrimeiroNome());
         petTutorDto.setUltimoNome(petTutor.getUltimoNome());
         petTutorDto.setNomeSocial(petTutor.getNomeSocial());
@@ -32,21 +33,26 @@ public class PetTutorService {
         return petTutorDto;
     }
 
-
     public PetTutor salvar(PetTutor petTutor) {
         return iPetTutorRepository.save(petTutor);
     }
 
 
-    public List<PetTutorInputDto> pegarTodosTutores() {
+    /*public List<PetTutorInputDto> pegarTodosTutores() {
         return iPetTutorRepository
                 .findAll()
                 .stream()
                 .map(this::transformePetTutorObjetoEmDto)
                 .collect(Collectors.toList());
     }
-
+*/
     public List<PetTutor> pegarTodos() {
         return iPetTutorRepository.findAll();
+    }
+
+    public List<PetTutor> listarPetTutors() {
+        return iPetTutorRepository.findAll().stream().collect(Collectors.toList());
+        // return iPetRepository.findAll().stream().collect(Collectors.toList());
+        //exemplo de metodo que nao funciona sem convertPetDto
     }
 }

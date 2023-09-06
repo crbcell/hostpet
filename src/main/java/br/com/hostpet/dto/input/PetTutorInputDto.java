@@ -21,21 +21,18 @@ public class PetTutorInputDto {
     private List<Pet> petList;
     private List<Telefone> telefoneList;
 
-    public PetTutorInputDto() {
-    }
+    public PetTutorInputDto(){}
 
-    private PetTutor transformePetTutorDtoEmObjeto() {
-        return new PetTutor(
-                primeiroNome,
-                ultimoNome,
-                nomeSocial,
-                genero,
-                dataAniversario,
-                endereco,
-                //pet,
-                //telefone,
-                petList,
-                telefoneList);
+    public PetTutorInputDto(PetTutor petTutor) {
+        this.primeiroNome = petTutor.getPrimeiroNome();
+        this.ultimoNome = petTutor.getUltimoNome();
+        this.nomeSocial = petTutor.getNomeSocial();
+        this.genero=petTutor.getGenero();
+        this.dataAniversario = petTutor.getDataAniversario();
+        this.endereco = petTutor.getEndereco();
+        this.petList = petTutor.getPetList();
+        this.telefoneList = petTutor.getTelefoneList();
+
     }
 
 }

@@ -1,6 +1,7 @@
 package br.com.hostpet.entity;
 
 import br.com.hostpet.enums.IdentidadeDeGenero;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.util.List;
 public class PetTutor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
 
     @Column(name = "PRIMEIRO_NOME")
@@ -33,6 +35,10 @@ public class PetTutor {
     @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 
+    /*@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_telefone")
+    private Telefone telefone;*/
+
     @JsonManagedReference
     @OneToMany(targetEntity = Pet.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_pet_tutor")
@@ -47,7 +53,7 @@ public class PetTutor {
     public PetTutor() {
     }
 
-    public PetTutor(
+  /*  public PetTutor(
             String primeiroNome,
             String ultimoNome,
             String nomeSocial,
@@ -56,7 +62,7 @@ public class PetTutor {
             Endereco endereco,
             List<Pet> petList,
             List<Telefone> telefoneList) {
-    }
+    }*/
 }
 
 /*

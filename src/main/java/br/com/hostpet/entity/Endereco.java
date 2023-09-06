@@ -2,6 +2,7 @@ package br.com.hostpet.entity;
 
 import br.com.hostpet.enums.TipoEndereco;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,7 @@ import lombok.*;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
 
     @Column(name = "TIPO_ENDERECO")
@@ -26,8 +28,6 @@ public class Endereco {
     private String complemento;
     @Column(name = "NUMERO_ENDERECO")
     private int numeroEndereco;
-
-    @OneToOne(mappedBy = "endereco")
-    @JsonBackReference
-    private PetTutor petTutor;
+    @Column(name = "ID_PET_TUTOR")
+    private long idPetTutor;
 }
